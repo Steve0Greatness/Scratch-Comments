@@ -2,7 +2,6 @@ const express = require("express"),
 	app = express(),
 	fetch = (...args) =>
 		import("node-fetch").then(({ default: fetch }) => fetch(...args)),
-	parser = require("xml2js").parseString,
 	dom = require("jsdom");
 
 app.get("/", (_, res) => {
