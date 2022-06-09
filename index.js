@@ -2,7 +2,10 @@ const express = require("express"),
 	app = express(),
 	fetch = (...args) =>
 		import("node-fetch").then(({ default: fetch }) => fetch(...args)),
-	dom = require("jsdom");
+	dom = require("jsdom"),
+	cors = require("cors");
+
+app.use(cors())
 
 app.get("/", (_, res) => {
 	res.sendFile(__dirname + "/docs.html");
@@ -29,14 +32,12 @@ function getContent(res, place, target) {
 		})
 }
 
-app.get("/users/:user", (req, res) => {
+app.get("/users/:user", cors(), (req, res) => {
 	getContent(res, "user", req.params.user);
 })
 
-app.get("/studios/:studio", (req, res) => {
+app.get("/studios/:studio", cors(), (req, res) => {
 	getContent(res, "gallery", req.params.studio);
 })
 
-app.listen(8080, () => {
-	console.log("Running.")
-})
+app.listen(8080)

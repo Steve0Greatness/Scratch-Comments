@@ -5,11 +5,31 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Documentation</title>
 </head>
 	
 <body>
-	
+	<h1>Documentation</h1>
+	<p>Welcome to Scratch Comments. An API for getting comments from the Scratch website. The only official way to currently officially get comments from some places on the Scratch website is to use them from an internal API endpoint which returns HTML, meant for making rendering easier on the developers. However, this makes it hard as a developer to do so. That is why I(Steve0Greatness) have created this API. It returns a JSON of all comments on the user's profile. Currently, the only 2 places that have an API endpoint here are <code>users</code> and <code>studios</code>.</p>
+	<ul>
+		<li>
+			Profile Comments:
+			<code>/users/:username</code>
+		</li>
+		<li>
+			Studio Comments:
+			<code>/studios/:studio_ID</code>
+		</li>
+	</ul>
+	<h2>Output</h2>
+	<p>The output is an Array of objects.</p>
+	<b>Keys</b>
+	<ul>
+		<li>author : The poster of the comment.</li>
+		<li>content : HTML content of the post.</li>
+		<li>posted : post date, I'd recommend using <code>new Date()</code> on this one.</li>
+		<li>reply : returns a boolean for if it's a reply to the last none-reply comment.</li>
+	</ul>
 </body>
 	
 </html>
